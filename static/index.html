@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sonder — music, in layers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#151916">
+  <link rel="stylesheet" href="/static/style.css?v=spotisaver">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">✳</span><span>sonder</span></div>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-item active"><span>◉</span> Studio</button>
+      <button class="nav-item" id="settingsNav"><span>⚙</span> Settings</button>
+      <div class="sidebar-bottom"><div class="privacy-dot"></div><div><small>LOCAL WORKSPACE</small><span>Your music stays yours</span></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar"><div class="crumb">STUDIO <span>/</span> NEW SESSION</div><button class="connection" id="connection"><i></i><span>Settings</span></button></header>
+      <section class="hero"><div class="eyebrow"><span>✳</span> A LITTLE MORE ROOM IN THE MIX</div><h1>Hear the song<br><em>in a new light.</em></h1><p>Paste a Spotify track link. Sonder downloads the matching MP3 with SpotiSaver and separates it with Kim Vocal 2.</p></section>
+
+      <section class="search-card">
+        <div class="step-title"><span class="step">01</span><div><h2>Get a track</h2><p>Spotify links via SpotiSaver</p></div></div>
+        <form id="searchForm"><div class="search-row"><span class="search-icon">↗</span><input id="query" type="url" aria-label="Spotify track link" placeholder="Paste a Spotify track link" autocomplete="off"><button type="submit" id="separateLink">Download &amp; separate</button></div></form>
+        <div class="hint">Pasting a track link starts the download and separation automatically.</div>
+        <label class="audio-drop" id="audioDrop">Choose an audio file or drop it here <input type="file" id="audioFile" accept="audio/*,.mp3,.flac,.m4a,.wav,.ogg,.aiff,.aif,.aac,.opus,.wma" class="sr-only"></label>
+        <p id="studioStatus" role="status"></p>
+      </section>
+
+      <section class="process-card"><div class="process-copy"><div class="step-title"><span class="step">02</span><div><h2>Separate the layers</h2><p>Kim Vocal 2 · MP3 at 320 kbps</p></div></div><div class="stem-pills"><span><b>01</b> Vocals</span><span><b>02</b> Instrumental</span></div></div><div class="process-visual"><div class="wave wave-one"></div><div class="wave wave-two"></div><div class="orb">✳</div><span class="model-tag">KIM VOCAL 2</span></div></section>
+
+      <section class="jobs-section"><div class="section-heading compact"><div><div class="eyebrow">RECENT ACTIVITY</div><h2>Your sessions</h2></div><button class="text-button" id="refresh">Refresh ↻</button></div><div id="jobs" class="jobs-empty"><span class="empty-icon">◌</span><p>Your processed tracks will appear here.</p></div></section>
+      <footer>MADE FOR LISTENING CLOSER <span>·</span> SONDER AUDIO STUDIO</footer>
+    </main>
+
+    <aside class="right-rail"><div class="rail-art"><div class="art-noise"></div><div class="art-circle"><div class="art-core">✳</div></div><span class="art-caption">THE SPACE<br>BETWEEN NOTES</span></div><div class="rail-note"><div class="eyebrow">IN YOUR FOLDER</div><h3>One song.<br>Two perspectives.</h3><div class="folder-line"><span>⌁</span><span>Song name/<small>Original, vocals, instrumental<br>320 kbps MP3</small></span></div></div><div class="rail-footer">BUILT TO STAY ON YOUR DEVICE<br><span>✳ &nbsp;Sonder v0.1</span></div></aside>
+  </div>
+
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <button class="close" id="closeSettings" aria-label="Close settings">×</button>
+      <h2 id="settingsTitle">Settings</h2>
+      <form id="outputFolderForm" class="field">
+        <label for="outputFolder">SAVE TO</label>
+        <div class="output-folder-controls">
+          <input id="outputFolder" type="text" autocomplete="off" required>
+          <button type="button" class="outline" id="browseOutput">Browse…</button>
+          <button type="submit" class="outline" id="saveOutput">Save</button>
+        </div>
+        <p class="modal-foot" id="outputMessage" role="status">Each song gets its own folder here.</p>
+      </form>
+      <div class="divider"></div>
+      <div class="model-row">
+        <div><b>Kim Vocal 2 model</b><small>Runs locally</small></div>
+        <button class="outline" id="downloadModel">Get model</button>
+      </div>
+      <p class="modal-foot" id="setupMessage" role="status"></p>
+      <div class="engine-row">
+        <b>Separation engine</b>
+        <p id="engineStatus" role="status">Checking engine…</p>
+      </div>
+    </div>
+  </div>
+  <div id="toast" class="toast" hidden></div>
+  <script src="/static/app.js?v=shared-runtime"></script>
+</body></html>

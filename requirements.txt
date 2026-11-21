@@ -1,0 +1,6 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+scipy>=1.9,<2
+# UVR's audio libraries import pkg_resources, which setuptools 82 removed.
+setuptools>=77.0.3,<82
+pyrubberband>=0.4,<0.5

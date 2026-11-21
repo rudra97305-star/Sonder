@@ -1,0 +1,28 @@
+SONDER FOR WINDOWS
+
+1. Extract the entire ZIP to a folder you can write to, such as Documents.
+2. Double-click Setup Sonder.cmd. It prepares the bundled Python inside
+   the extracted folder and downloads any missing audio and GPU libraries.
+   Kim Vocal 2, the separation source files, and the Visual C++ installer
+   are included.
+3. Open Sonder.exe. Kim Vocal 2 loads from the extracted folder at startup.
+   Sonder prefers DirectML and uses the CPU if GPU acceleration is unavailable.
+4. Paste a Spotify track link in Studio. Choose where the MP3 files go
+   under Settings > Save to.
+
+Requirements: 64-bit Windows 10/11 and Microsoft Edge WebView2 Runtime.
+A DirectX 12 compatible GPU with current drivers speeds up separation.
+WebView2: https://developer.microsoft.com/microsoft-edge/webview2/#download-section
+Setup runs the bundled Microsoft Visual C++ installer if Windows needs
+it. If Windows asks for permission, allow the Microsoft installer to run.
+Visual C++ installer errors are recorded in vc-runtime-setup.log.
+Official Python installer: https://www.python.org/downloads/release/python-31011/
+The installers folder also includes the official Windows Python installer
+for a separate installation, but Sonder setup uses its own runtime.
+
+Updating an earlier copy? Close Sonder and any setup window, then extract
+the new ZIP over the old Sonder folder. Leave .python310 in place to reuse
+its installed libraries.
+
+Keep Sonder.exe and the other files together. The ZIP contains no music,
+personal settings, or account credentials. No Telegram login is needed.
